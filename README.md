@@ -1,6 +1,3 @@
-# Data-Science
-
-
 # Data Science
 
 This repository contains my structured preparation journey for Data Science, Data Analytics, and Machine Learning roles. It includes SQL problem-solving practice, data cleaning, missing value handling, exploratory data analysis, data visualization, machine learning fundamentals, and other practical exercises.
