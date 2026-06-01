@@ -11,8 +11,6 @@ I am using this repository to build consistency, improve my technical problem-so
 
 - Solved 10+ HackerRank SQL problems
 - Practicing SQL queries including filtering, aggregation, joins, and subqueries
-- Learning data cleaning, missing value handling, and exploratory data analysis
-- Building a strong foundation in Python, SQL, statistics, visualization, and machine learning
 
 ## Topics
 
