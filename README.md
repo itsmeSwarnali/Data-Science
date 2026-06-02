@@ -39,7 +39,7 @@ The goal of this repository is to develop practical, interview-ready Data Scienc
 
 
 
-#Data Cleaning
+# Data Cleaning
 
 1. Identify the problematic data
 2. Clean the data
