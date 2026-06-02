@@ -36,3 +36,18 @@ I am using this repository to build consistency, improve my technical problem-so
 ## Goal
 
 The goal of this repository is to develop practical, interview-ready Data Science skills through consistent hands-on practice and project-based learning.
+
+
+
+#Data Cleaning
+
+1. Identify the problematic data
+2. Clean the data
+3. Remove, encode, fill in any missing data
+4. Remove outliers or analyze them separately
+5. Purge contaminated data and correct leaking pipelines
+6. Standardize inconsistent data
+7. Check if your data makes sense (is valid)
+8. Deduplicate multiple records of the same dataForesee and prevent type issues (string issues, DateTime issues)
+9. Remove engineering errors (aka structural errors)
+10. Rinse and repeat
