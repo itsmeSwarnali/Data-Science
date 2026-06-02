@@ -6,7 +6,7 @@ I am using this repository to build consistency, improve my technical problem-so
 
 ## Current Progress
 
-- Solved 15+ HackerRank SQL problems
+- Solved 20+ HackerRank SQL problems
 - Practicing SQL queries including filtering, aggregation, joins, and subqueries
 
 ## Topics
