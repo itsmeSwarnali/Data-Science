@@ -14,4 +14,12 @@ string = "hello world"
 result = reverse_sent(string)
 print(result)
 
+
+"""def reverse_sent(string):
+    str1=string.split()
+    return " ".join(str1[::-1]) 
+# [::-1]
+#start → empty, means beginning
+#stop → empty, means end
+#step → -1, means go backwards"""
     
