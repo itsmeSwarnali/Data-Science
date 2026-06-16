@@ -136,12 +136,29 @@ order by country, total_spent desc;
 -- Q4 — Window Function -- Rank all customers by their total_spent.
 --Show: rank, full name, country, total spent. Highest spender = Rank 1.
 --(Use RANK() window function)
-
-
+select c.full_name, c.country, c.total_spent,
+        rank() over (order by c.total_spent desc) as rank_cus
+from customers c;
 
 
 
 -- Q5 — Subquery + JOIN
 --Find customers who have spent more than the average order amount in completed orders.
+
+select c.full_name, c.country, sum(o.amount)
+from customers c
+inner join orders o on c.customer_id = o.customer_id
+where o.status = "completed"
+group by c.full_name, c.country
+having sum(o.amount)>(
+  select avg(amount) from orders
+  where status = 'completed'
+)
+order by sum(o.amount) desc;
+
+
+
+
+
 --Show: full name, country, their total order amount.
 --(Hint: You need orders table + subquery for average)
