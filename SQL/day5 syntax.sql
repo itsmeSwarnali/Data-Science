@@ -26,3 +26,20 @@ AVG(total_spent) OVER (PARTITION BY country)
 
 -- Row number
 ROW_NUMBER() OVER (ORDER BY total_spent DESC)
+
+
+
+
+-- Difference between GROUP BY and Window Functions:
+
+-- GROUP BY → collapses rows into groups
+SELECT country, AVG(total_spent)
+FROM customers
+GROUP BY country;
+-- Returns 4 rows (one per country)
+
+-- Window Function → keeps all rows + adds calculation
+SELECT full_name, country, total_spent,
+       AVG(total_spent) OVER (PARTITION BY country) AS country_avg
+FROM customers;
+-- Returns 15 rows (all customers + their country average!)
