@@ -144,21 +144,15 @@ from customers c;
 
 -- Q5 — Subquery + JOIN
 --Find customers who have spent more than the average order amount in completed orders.
-
-select c.full_name, c.country, sum(o.amount)
-from customers c
-inner join orders o on c.customer_id = o.customer_id
-where o.status = "completed"
-group by c.full_name, c.country
-having sum(o.amount)>(
-  select avg(amount) from orders
-  where status = 'completed'
-)
-order by sum(o.amount) desc;
-
-
-
-
-
 --Show: full name, country, their total order amount.
 --(Hint: You need orders table + subquery for average)
+select c.full_name, c.country, sum(o.amount) as sum_of_amount
+from customers c
+inner join orders o
+on c.customer_id = o.customer_id
+where o.status = 'completed'
+group by c.full_name, c.country
+having sum(o.amount) > (
+  select avg(o.amount) from orders o
+  where o.status='completed'
+);
