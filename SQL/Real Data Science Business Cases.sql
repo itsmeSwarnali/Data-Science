@@ -130,8 +130,7 @@ left join customers c on c.customer_id= o.customer_id
 group by c.country;
 
 
---Q4 Identify "at-risk" customers: customers who placed their only order more than... well, let's simplify — customers 
---who have exactly 1 completed order AND that order amount is below the overall average order amount (across completed orders).
+--Q4 customers who have exactly 1 completed order AND that order amount is below the overall average order amount (across completed orders).
 --Show: full_name, country, order_amount.
 select c.full_name, c.country, sum(o.amount) as order_amount
 from customers c
