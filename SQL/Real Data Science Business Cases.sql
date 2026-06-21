@@ -147,20 +147,23 @@ sum(o.amount)<(select avg(o.amount) from orders o where o.status = "completed");
 --Find customers whose total completed order amount is above the average total completed order amount, 
 --Show: full_name, country, total_order_amount.
 
-select * from 
-(
-  select c.full_name, c.country, sum(o.amount) as total_completed_order_amount
-  from customers c
-  inner join orders o
-  on c.customer_id = o.customer_id
-  where o.status = "completed"
-  group by c.full_name, c.country) as completed_orders
-  where 
-  total_completed_order_amount > (
-    select avg(total_completed_order_amount)  from (select sum(o.amount) as total_completed_order_amount
-  from customers c
-  inner join orders o
-  on c.customer_id = o.customer_id
-  where o.status = "completed"
-  group by c.customer_id) as avg);
+WITH completed_orders AS (
+    SELECT 
+        c.customer_id,
+        c.full_name,
+        c.country,
+        SUM(o.amount) AS total_completed_order_amount
+    FROM customers c
+    INNER JOIN orders o
+        ON c.customer_id = o.customer_id
+    WHERE o.status = 'completed'
+    GROUP BY c.customer_id, c.full_name, c.country
+)
+
+SELECT *
+FROM completed_orders
+WHERE total_completed_order_amount > (
+    SELECT AVG(total_completed_order_amount)
+    FROM completed_orders
+);
 
