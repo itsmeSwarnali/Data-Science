@@ -145,7 +145,22 @@ sum(o.amount)<(select avg(o.amount) from orders o where o.status = "completed");
 
 --Q5 (Same pattern as yesterday — more reps!)
 --Find customers whose total completed order amount is above the average total completed order amount, 
---but this time also show what percentage above average they are.
---Show: full_name, country, total_order_amount, pct_above_average (rounded to 1 decimal).
+--Show: full_name, country, total_order_amount.
 
+select * from 
+(
+  select c.full_name, c.country, sum(o.amount) as total_completed_order_amount
+  from customers c
+  inner join orders o
+  on c.customer_id = o.customer_id
+  where o.status = "completed"
+  group by c.full_name, c.country) as completed_orders
+  where 
+  total_completed_order_amount > (
+    select avg(total_completed_order_amount)  from (select sum(o.amount) as total_completed_order_amount
+  from customers c
+  inner join orders o
+  on c.customer_id = o.customer_id
+  where o.status = "completed"
+  group by c.customer_id) as avg);
 
