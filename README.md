@@ -1,6 +1,6 @@
 # Data Science
 
-This repository contains my structured preparation journey for Data Science, Data Analytics, and Machine Learning roles. It includes SQL problem-solving practice, data cleaning, missing value handling, exploratory data analysis, data visualization, machine learning fundamentals, and other practical exercises.
+This repository contains my structured preparation journey for Data Science, Data Analytics, and Machine Learning roles. It includes SQL problem-solving practice, data cleaning, handling missing values, exploratory data analysis, data visualisation, machine learning fundamentals, and other practical exercises.
 
 I am using this repository to build consistency, improve my technical problem-solving skills, and document my progress toward becoming a job-ready Data Scientist.
 
@@ -25,9 +25,9 @@ Topics covered:
 
 
 ## SQL
-- Filtering,
-- Aggregation,
-- joins,
+- Filtering
+- Aggregation
+- joins
 - subqueries
 - Solved 20+ HackerRank 
 
