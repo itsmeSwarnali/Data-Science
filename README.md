@@ -11,8 +11,6 @@ The goal of this repository is to develop practical, interview-ready Data Scienc
 ## Current Progress
 
 ## Python DSA Practice for Data Science Assessments
-
-Topics covered:
 - Lists
 - Strings
 - Dictionaries
