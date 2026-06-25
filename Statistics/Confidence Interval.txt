@@ -1,0 +1,14 @@
+For a fair coin:
+
+True value = 50% heads
+
+The sample result changes every experiment:
+
+Experiment 1: 52 heads → sample result 52% → CI maybe 42%–62% ✅ contains 50%
+Experiment 2: 47 heads → sample result 47% → CI maybe 37%–57% ✅ contains 50%
+Experiment 3: 65 heads → sample result 65% → CI maybe 55%–75% ❌ does not contain 50%...
+
+So,
+If I do 100 experiments, and in each experiment I flip a coin 100 times, then each experiment gives one confidence interval. 
+So 100 experiments give 100 confidence intervals. If I use a 95% confidence interval method, then about 95 of those 100 
+intervals will contain the true value, which is 50% for a fair coin. About 5 intervals may miss the true value.
