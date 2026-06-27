@@ -121,3 +121,20 @@ DATEDIFF(o.order_date, lag(o.order_date) over (partition by o.customer_id order 
 from orders o
 where o.status = "completed";
 
+
+
+--Q3 Identify customers for a "win-back" email campaign: 
+--customers whose most recent completed order was their only completed order, 
+--AND that order amount was below the average completed order amount (company-wide).
+--Show: full_name, country, order_amount.
+WITH one_order_amount as (select c.full_name, c.country, sum(o.amount) as order_amount
+  from customers c inner join orders o on c.customer_id = o.customer_id
+  where o.status = "completed"
+  group by c.customer_id, c.full_name, c.country
+  having count(*)=1)
+  
+
+select full_name, country, order_amount
+from one_order_amount
+where order_amount < (select avg(o.amount) 
+from orders o where o.status = "completed");
