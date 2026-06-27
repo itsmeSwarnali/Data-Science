@@ -133,8 +133,16 @@ WITH one_order_amount as (select c.full_name, c.country, sum(o.amount) as order_
   group by c.customer_id, c.full_name, c.country
   having count(*)=1)
   
-
 select full_name, country, order_amount
 from one_order_amount
 where order_amount < (select avg(o.amount) 
 from orders o where o.status = "completed");
+
+
+--Find customers who have placed completed orders in more than one different month 
+--(e.g., one in January, another in March). Show: full_name, number_of_distinct_months.
+select c.full_name, count(distinct month(o.order_date)) as number_of_distinct_months
+from customers c inner join orders o on c.customer_id = o.customer_id
+where o.status = "completed"
+group by c.full_name 
+having count(distinct month(o.order_date)) > 1;
