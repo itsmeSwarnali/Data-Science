@@ -113,8 +113,12 @@ group by c.country)
 select * from completed_order_table where completed_order_count > (select avg(completed_order_count) from completed_order_table);
 
 
-
-
+--Q2 — Decide First, Then Write
+--Before writing SQL, answer in plain English: "Show each product's product_id, product_name, and price, 
+--along with a column showing what percentage of TOTAL company-wide product price (sum of all prices) this single product represents."
+select p.product_id, p.product_name, p.price, 
+round(p.price*100/sum(p.price) over(),2) as TOTAL_company_wide_product_price 
+from products p;
 
 
 
